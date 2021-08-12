@@ -1,0 +1,29 @@
+<html>
+<nav class="navbar navbar-light bg-light">
+  <%= link_to "Home",  lists_path, class: "navbar-brand"%>
+  <%= link_to "create tasks",  new_list_path , class:"mr-sm-2 navbar-brand"%>
+</nav>
+<div class = "d-flex flex-column justify-content-center ">
+  <div class = "containerr p-2" style= "box-shadow: 0 1px 1px -1px gray">
+    <h1><%= @list.name %></h1>
+  </div>
+  <div class ="p-2">
+    <%= link_to "Bookmark", new_list_bookmark_path(@list) %>
+  </div>
+  <div class ="p-2">
+    <% if @list.bookmarks.any? %>
+    <p>
+      <strong>bookmarks:</strong>
+    <ul>
+    <% @list.bookmarks.each do |bookmark| %>
+      <li><%= bookmark.movie.title %>:<%= bookmark.comment %>
+      <%= link_to "🗑", bookmark_path(bookmark.id), method: :delete, data: { confirm: "Really delete #{bookmark.movie.title}?" } %></li>
+    <% end %>
+    </ul>
+    </p>
+    <% else %>
+    <p> Be the first to bookmark...</p>
+    <% end %>
+  </div>
+</div>
+</html>

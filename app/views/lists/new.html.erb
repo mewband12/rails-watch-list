@@ -1,0 +1,8 @@
+<html>
+  <nav class="navbar navbar-light bg-light">
+  <%= link_to "Home",  lists_path, class: "navbar-brand"%>
+  <%= link_to "create tasks",  new_list_path , class:"mr-sm-2 navbar-brand"%>
+</nav>
+  <h1 class ="text-center">Add list</h1>
+  <%= render 'form'  %>
+</html>

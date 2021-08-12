@@ -1,0 +1,8 @@
+<div class ="col-sm-8 col-sm-offset-2 mx-auto">
+  <%= simple_form_for [ @list, @bookmark ] do |f| %>
+    <%= f.association :movie %>
+    <%= f.input :comment %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+  <% end %>
+</div>
+

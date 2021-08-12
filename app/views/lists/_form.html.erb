@@ -1,0 +1,12 @@
+<div class ="col-sm-8 col-sm-offset-2 mx-auto">
+<%= form_for(@list) do |f| %>
+  <% if @list.errors.full_messages.any? %>
+    <% @list.errors.full_messages.each do |msg| %>
+      <p class = "text-danger"><%= msg  %></p>
+      <% end %>
+    <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name, class: "form-control" %>
+  <%= f.submit "Submit review", class: "btn btn-primary" %>
+<% end %>
+</div>
