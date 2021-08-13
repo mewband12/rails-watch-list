@@ -4,18 +4,46 @@
   <%= link_to "Home",  lists_path, class: "navbar-brand"%>
   <%= link_to "create tasks",  new_list_path , class:"mr-sm-2 navbar-brand"%>
 </nav>
-<div class = "d-block ml-100 d-flex justify-content-center">
-    <div class ="col-sm-8 col-sm-offset-2" style="">
-        <h1>My Tasks</h1>
-          <% @lists.each do |list| %>
-          <div class = "card">
-            <h5 class="card-header navbar-brand"><%= link_to list.name, list_path(list.id) %></h5>
-          </div>
-              <% end %>
-        <p><%= link_to "create tasks",  new_list_path %></p>
-    </div>
+
+<div class="banner" style="margin-bottom: 10px; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://i.pinimg.com/originals/48/55/5b/48555b49e2c1470dea62f60c8a610179.jpg);" data-aos="flip-up">
+  <div class="container">
+    <h1>Mew movie brings <strong>fun</strong> and <strong>dope movie</strong>!</h1>
+    <p>Change your life and watch mew movie from around the world.</p>
+    <%= link_to "create tasks",  new_list_path , class:"mr-sm-2 navbar-brand", class:"btn btn-primary"%>
+  </div>
 </div>
-
-
-
+  <div class="container">
+        <h1 data-aos="zoom-out-right" data-aos-duration="100000">My Movies</h1>
+          <% @lists.each_with_index do |list, index| %>
+              <% if (index % 3  == 0) %>
+                <div class="cards", style= "margin-bottom: 10px" data-aos="flip-up">
+              <% end %>
+              <% case index  %>
+              <% when 0 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ytimg.com/vi/I4rS15xBL1Y/maxresdefault.jpg)">
+              <% when 1 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://st.depositphotos.com/3203799/4106/i/600/depositphotos_41066325-stock-photo-couple-in-love-silhouette-during.jpg)">
+              <% when 2 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.ytimg.com/vi/QibZAhu8lhg/maxresdefault.jpg)">
+              <% when 3 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/originals/8d/e7/0a/8de70a53409dddbd63a8fe9c92ffaeee.jpg)">
+              <% when 4 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://jaynicol1.files.wordpress.com/2015/09/fantasy-film.jpg)">
+              <% when 5 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://image.winudf.com/v2/image/Y29tLmJyc3lsbG9obW92aWUuYW12X3NjcmVlbl8wXzE1MzIwNzUyMTdfMDky/screen-0.jpg?fakeurl=1&type=.jpg)">
+              <% when 6 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images-na.ssl-images-amazon.com/images/I/91VDYvZYjuL.png)">
+              <% when 7 %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/236x/97/b3/7d/97b37d98b7301609bb281fe7f56b220d.jpg)">
+              <% else %>
+                <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://nofilmschool.com/sites/default/files/styles/article_wide/public/drama_genre_-_crash_.jpg?itok=HCURiYb2)">
+              <% end %>
+                <%= link_to list.name, list_path(list.id) %>
+              </div>
+              <% if ((index - 2) % 3  == 0) && (index - 2 >= 0) %>
+                </div>
+              <% end %>
+          <% end %>
+        <p><%= link_to "create tasks",  new_list_path %></p>
+</div>
 </html>

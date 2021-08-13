@@ -9,6 +9,7 @@
 require 'open-uri'
 puts "creating movies"
 Movie.destroy_all
+List.destroy_all
 # List.destroy_all
 
 # the Le Wagon copy of the API
@@ -27,3 +28,13 @@ response['results'].each do |movie_hash|
   )
 end
 puts "Created #{Movie.count} movies"
+
+puts "creating list"
+lists = ["action", "romance", "horror", "sci-fi", "fantasy", "comedy", "documentory", "adventure", "drama"]
+lists.each do |list|
+  List.create!(
+    name: list
+  )
+end
+
+puts "Created #{List.count} lists"
